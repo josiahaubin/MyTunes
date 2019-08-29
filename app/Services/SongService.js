@@ -54,4 +54,17 @@ export default class SongService {
 
             })
     }
+
+    addSong(id) {
+        let song = _state.songs.find(s => s._id == id)
+
+        _sandBoxApi.post('', song)
+            .then(res => {
+                _state.playlistSongs.push(new Song(res.data.data))
+            })
+            .catch(err => {
+                console.error(err);
+
+            })
+    }
 }

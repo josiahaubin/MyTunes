@@ -28,4 +28,8 @@ export default class SongController {
         e.preventDefault();
         _songService.getMusicByQuery(e.target.query.value)
     }
+
+    addSong(id) {
+        _songService.addSong(id)
+    }
 }
