@@ -2,12 +2,12 @@ import Song from "../Models/Song.js";
 
 //Private
 let _state = {
-
+    songs: []
 }
 
 //NOTE methods to run when a given property in state changes
 let _subscribers = {
-
+    songs: []
 }
 
 function _setState(propName, data) {
@@ -22,5 +22,20 @@ export default class SongService {
     //NOTE adds the subscriber function to the array based on the property it is watching
     addSubscriber(propName, fn) {
         _subscribers[propName].push(fn)
+    }
+
+    get Songs() {
+        return _state.songs
+    }
+
+    getMusicByQuery(query) {
+        var url = 'https://itunes.apple.com/search?callback=?&term=' + query;
+        // @ts-ignore
+        $.getJSON(url)
+            .then(res => {
+                let results = res.results.map(rawData => new Song(rawData))
+                _setState('songs', results)
+            })
+            .catch(err => console.log(err))
     }
 }
