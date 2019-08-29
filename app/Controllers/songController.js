@@ -8,7 +8,7 @@ function _drawItunesSongs() {
     let songs = _songService.Songs
     let template = '<ul>'
     songs.forEach(s => {
-        template += s.Template
+        template += s.Template + s.addButtonTemplate
     })
     songElem.innerHTML = template + '</ul>'
 }

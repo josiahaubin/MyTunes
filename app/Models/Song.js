@@ -18,7 +18,11 @@ export default class Song {
                     <p class="card-text">${this.album} price: ${this.price}</p>
                     <audio controls src="${this.preview}"></audio>
                 </div>
-            </div>
+            
         `
+    }
+
+    get addButtonTemplate() {
+        return `<button class="btn btn-success w-25 mx-auto" onclick="app.controllers.songController.addSong()"><i class="fas fa-plus"></i> Add Song</button></div>`
     }
 }
