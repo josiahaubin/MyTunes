@@ -21,6 +21,7 @@ export default class SongController {
 
         //NOTE Retrieve data
         //_songService.getMusicByQuery()
+        _songService.getPlaylistSongs()
     }
 
     search(e) {

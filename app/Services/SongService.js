@@ -1,13 +1,20 @@
 import Song from "../Models/Song.js";
 
+// @ts-ignore
+let _sandBoxApi = axios.create({
+    baseURL: "http://bcw-sandbox.herokuapp.com/api/Josiah/songs"
+})
+
 //Private
 let _state = {
-    songs: []
+    songs: [],
+    playlistSongs: []
 }
 
 //NOTE methods to run when a given property in state changes
 let _subscribers = {
-    songs: []
+    songs: [],
+    playlistSongs: []
 }
 
 function _setState(propName, data) {
@@ -37,5 +44,14 @@ export default class SongService {
                 _setState('songs', results)
             })
             .catch(err => console.log(err))
+    }
+
+    getPlaylistSongs() {
+        _sandBoxApi.get()
+            .then(res => {
+                _setState("playlistSongs", res.data.data)
+                console.log(res.data.data);
+
+            })
     }
 }
