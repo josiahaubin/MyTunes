@@ -26,4 +26,8 @@ export default class Song {
     get addButtonTemplate() {
         return `<button class="btn btn-success w-25 mx-auto" onclick="app.controllers.songController.addSong('${this._id}')"><i class="fas fa-plus"></i> Add Song</button></div>`
     }
+
+    get deleteButtonTemplate() {
+        return `<button class="btn btn-danger w-25 mx-auto" onclick="app.controllers.songController.deleteSong('${this._id}')"><i class="fas fa-dumpster-fire"></i> Remove Song</button></div>`
+    }
 }

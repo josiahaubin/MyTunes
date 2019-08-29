@@ -34,6 +34,9 @@ export default class SongService {
     get Songs() {
         return _state.songs
     }
+    get PlaylistSongs() {
+        return _state.playlistSongs.map(s => new Song(s))
+    }
 
     getMusicByQuery(query) {
         var url = 'https://itunes.apple.com/search?callback=?&term=' + query;
@@ -60,7 +63,8 @@ export default class SongService {
 
         _sandBoxApi.post('', song)
             .then(res => {
-                _state.playlistSongs.push(new Song(res.data.data))
+                _state.playlistSongs.push(res.data.data)
+                _setState("playlistSongs", _state.playlistSongs)
             })
             .catch(err => {
                 console.error(err);
