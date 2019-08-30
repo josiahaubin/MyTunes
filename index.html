@@ -14,6 +14,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <h1 class="text-center">Search iTunes</h1>
                 <form onsubmit="app.controllers.songController.search(event)">
                     <div class="form-group row">
                         <input type="text" class="form-control" name="query" placeholder="Search Term">
@@ -23,6 +24,12 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-6 text-center mb-2">
+                <h3> Search Results</h3>
+            </div>
+            <div class="col-6 text-center mb-2">
+                <h3>My Playlist</h3>
+            </div>
             <div id="songs" class="col-6">
                 <!-- template to generate -->
 
