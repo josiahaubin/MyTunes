@@ -71,4 +71,16 @@ export default class SongService {
 
             })
     }
+
+    deleteSong(_id) {
+
+        _sandBoxApi.delete(_id)
+            .then(res => {
+                this.getPlaylistSongs()
+            })
+            .catch(err => {
+                console.error(err);
+
+            })
+    }
 }

@@ -43,4 +43,8 @@ export default class SongController {
     addSong(id) {
         _songService.addSong(id)
     }
+
+    deleteSong(id) {
+        _songService.deleteSong(id)
+    }
 }

@@ -28,6 +28,6 @@ export default class Song {
     }
 
     get deleteButtonTemplate() {
-        return `<button class="btn btn-danger w-25 mx-auto" onclick="app.controllers.songController.deleteSong('${this._id}')"><i class="fas fa-dumpster-fire"></i> Remove Song</button></div>`
+        return `<button class="btn btn-danger w-50 mx-auto" onclick="app.controllers.songController.deleteSong('${this._id}')"><i class="fas fa-dumpster-fire"></i> Remove Song</button></div>`
     }
 }
